@@ -1,12 +1,20 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import {HeaderComponent} from './layout/header/header';
+import {SearchComponent} from './layout/search/search'
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [HeaderComponent, SearchComponent],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
 export class App {
   protected readonly title = signal('frontend');
+  isOpened= signal(false);
+  openSearchEvent(){
+    this.isOpened.set(true)
+  }
+  closeSearchEvent(){
+    this.isOpened.set(false)
+  }
 }
