@@ -14,9 +14,72 @@
   />
   <button class="search__btn">НАЙТИ</button>
   @if(isFocused()){
-    <div class="search__filtres" (mousedown)="$event.preventDefault()">
+    <div class="search-dropdown">
+      <div class="search-dropdown__history">
+        <p class="search-dropdown__title">История</p>
 
+        <ul class="search-dropdown__list">
+          <li class="search-dropdown__item">закрепить теги</li>
+          <li class="search-dropdown__item">кнопка</li>
+          <li class="search-dropdown__item">приложение</li>
+          <li class="search-dropdown__item">форма</li>
+          <li class="search-dropdown__item">текстовое поле</li>
+        </ul>
+      </div>
+      <div class="search-dropdown__filters">
 
+        <div class="search-dropdown__field">
+          <label class="search-dropdown__label">Label</label>
+
+          <div class="search-dropdown__input-wrapper">
+            <input
+              type="text"
+              class="search-dropdown__input"
+              placeholder="Имя или должность"
+            />
+
+            <button class="search-dropdown__input-btn">
+              Я
+            </button>
+          </div>
+        </div>
+        <div class="search-dropdown__group">
+          <label class="search-dropdown__checkbox">
+            <input type="checkbox" />
+            <span>Я участник</span>
+          </label>
+
+          <label class="search-dropdown__checkbox">
+            <input type="checkbox" />
+            <span>Строгий поиск</span>
+          </label>
+
+          <label class="search-dropdown__checkbox">
+            <input type="checkbox" />
+            <span>В заголовках</span>
+          </label>
+        </div>
+
+        <div class="search-dropdown__group">
+          <p class="search-dropdown__subtitle">Только</p>
+
+          <label class="search-dropdown__checkbox">
+            <input type="checkbox" />
+            <span>Теги</span>
+          </label>
+
+          <label class="search-dropdown__checkbox">
+            <input type="checkbox" />
+            <span>Просьбы</span>
+          </label>
+
+          <label class="search-dropdown__checkbox">
+            <input type="checkbox" />
+            <span>Контакты</span>
+          </label>
+        </div>
+
+      </div>
     </div>
   }
 </div>

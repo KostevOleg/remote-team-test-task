@@ -14,7 +14,7 @@ export class SearchComponent {
   isFocused = signal(false);
 
   el = inject(ElementRef);
-
+  @Input() ignoreBtn = HTMLElement
   @Output() close = new EventEmitter<void>();
 
   @HostListener('document:click', ['$event'])

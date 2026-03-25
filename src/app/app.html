@@ -1,9 +1,3 @@
-<div class="container">
-  <app-header class="header"(openSearchEvent)="openSearchEvent()"  [isOpened]="isOpened()">
-      <app-search
-       (close)="closeSearchEvent()"
-       [class.open]="isOpened()"
-       class="search"></app-search>
-  </app-header>
-</div>
+  <app-header (openSearchEvrnt)="openSearch()"></app-header>
 
+  <app-search-mobile (close)="closeSearch()" [isOpen]="isSearchOpen()"></app-search-mobile>

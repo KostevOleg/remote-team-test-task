@@ -1,0 +1,71 @@
+<div class="search-page" [class.search-page_open]="isOpen">
+  <div class="search-page__header">
+
+    <button class="search-page__back" (click)="close.emit()">
+      ←
+    </button>
+
+    <input
+      type="text"
+      class="search-page__input"
+      placeholder="Поиск"
+      autofocus
+    />
+
+  </div>
+
+  <div class="search-page__body">
+
+    <div class="search-page__group">
+      <label class="search-page__label">Label</label>
+
+      <div class="search-page__input-wrapper">
+        <input type="text" placeholder="Имя или должность" />
+        <span class="search-page__tag">Я</span>
+      </div>
+    </div>
+
+    <div class="search-page__group">
+      <label class="search-page__checkbox">
+        <input type="checkbox" checked />
+        <span class="checkbox__box"></span>
+        <span>Я участник</span>
+      </label>
+
+      <label class="search-page__checkbox">
+        <input type="checkbox" checked />
+        <span class="checkbox__box"></span>
+        <span>В заголовках</span>
+      </label>
+
+      <label class="search-page__checkbox">
+      <input type="checkbox" checked />
+        <span class="checkbox__box"></span>
+        <span>Строгий поиск</span>
+      </label>
+    </div>
+
+    <div class="search-page__group">
+      <label class="search-page__subtitle">Только</label>
+
+      <label class="search-page__checkbox">
+        <input type="checkbox" checked />
+        <span class="checkbox__box"></span>
+        <span>Теги</span>
+      </label>
+
+      <label class="search-page__checkbox">
+        <input type="checkbox" checked />
+        <span class="checkbox__box"></span>
+        <span>Просьбы</span>
+      </label>
+
+      <label class="search-page__checkbox">
+        <input type="checkbox" checked />
+        <span class="checkbox__box"></span>
+        <span>Контакты</span>
+      </label>
+    </div>
+
+  </div>
+</div>

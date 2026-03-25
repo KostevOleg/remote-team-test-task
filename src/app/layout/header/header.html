@@ -7,68 +7,76 @@
       </a>
     </div>
 
-      <nav class="header__nav">
-        <ul class="header__nav-list">
+    <div  class="header__center">
+      <app-search  (close)="closeSearch(); " [class.open]="isOpened()" class="header-search"></app-search>
+       <button type="button" class="header__burger" (click)="toggleMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+      </button>
+      <nav  class="header__nav" [class.open]="isMobileMenu()">
+            <ul class="header__nav-list">
 
-          <li class="header__nav-item">
-            <a routerLink="/" class="header__nav-link">
-              <svg class="icon icon-rotate" viewBox="0 0 21.2132 21.2131">
-                  <path d="M15 0L11 0L11 2L15 2C16.65 2 18 3.35 18 5C18 6.65 16.65 8 15 8L11 8L11 10L15 10C17.76 10 20 7.76 20 5C20 2.24 17.76 0 15 0ZM9 8L5 8C3.35 8 2 6.65 2 5C2 3.35 3.35 2 5 2L9 2L9 0L5 0C2.24 0 0 2.24 0 5C0 7.76 2.24 10 5 10L9 10L9 8ZM6 4L14 4L14 6L6 6L6 4Z"
-                    fill="currentColor" />
-                </svg>
-              <span>Ссылки</span>
-            </a>
-          </li>
-         <li class="header__nav-item">
-            <a routerLink="/" class="header__nav-link">
-              <svg class="icon" viewBox="0 0 20 14">
-                  <path d="M7 8.75C4.66 8.75 0 9.92 0 12.25L0 14L14 14L14 12.25C14 9.92 9.34 8.75 7 8.75ZM2.34 12C3.18 11.42 5.21 10.75 7 10.75C8.79 10.75 10.82 11.42 11.66 12L2.34 12ZM7 7C8.93 7 10.5 5.43 10.5 3.5C10.5 1.57 8.93 0 7 0C5.07 0 3.5 1.57 3.5 3.5C3.5 5.43 5.07 7 7 7ZM7 2C7.83 2 8.5 2.67 8.5 3.5C8.5 4.33 7.83 5 7 5C6.17 5 5.5 4.33 5.5 3.5C5.5 2.67 6.17 2 7 2ZM14.04 8.81C15.2 9.65 16 10.77 16 12.25L16 14L20 14L20 12.25C20 10.23 16.5 9.08 14.04 8.81Z"
-                    fill="currentColor" />
-              </svg>
-              <span>Ссылки</span>
-            </a>
-          </li>
-          <li class="header__nav-item">
-            <a routerLink="/" class="header__nav-link">
-              <svg class="icon" viewBox="0 0 24 24">
-                  <path d="M7 20L7.5 16L4 16L4 14L7.75 14L8.25 10L4 10L4 8L8.5 8L9 4L11 4L10.5 8L14.5 8L15 4L17 4L16.5 8L20 8L20 10L16.25 10L15.75 14L20 14L20 16L15.5 16L15 20L13 20L13.5 16L9.5 16L9 20L7 20ZM13.75 14L14.25 10L10.25 10L9.75 14L13.75 14Z"
-                    fill="currentColor" />
-                </svg>
-              <span>Ссылки</span>
-            </a>
-          </li>
-          <li class="header__nav-item">
-            <a routerLink="/" class="header__nav-link">
-              <svg class="icon" viewBox="0 0 24 24">
-                  <path d="M7 20L7.5 16L4 16L4 14L7.75 14L8.25 10L4 10L4 8L8.5 8L9 4L11 4L10.5 8L14.5 8L15 4L17 4L16.5 8L20 8L20 10L16.25 10L15.75 14L20 14L20 16L15.5 16L15 20L13 20L13.5 16L9.5 16L9 20L7 20ZM13.75 14L14.25 10L10.25 10L9.75 14L13.75 14Z"
-                    fill="currentColor" />
-                </svg>
-              <span>Ссылки</span>
-            </a>
-          </li>
-          <li class="header__nav-item">
-            <a routerLink="/" class="header__nav-link">
-              <svg class="icon" viewBox="0 0 24 24">
-                <path d="M22 9.24L14.81 8.62L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27L18.18 21L16.55 13.97L22 9.24Z"
-                  fill="currentColor" />
-              </svg>
-              <span>Ссылки</span>
-            </a>
-          </li>
-          <li class="header__nav-item">
-            <a routerLink="/" class="header__nav-link">
-                <svg class="icon" viewBox="0 0 24 24">
-                  <path d="M13 3C8.03 3 4 7.03 4 12L1 12L4.89 15.89L9 12L6 12C6 8.13 9.13 5 13 5C16.87 5 20 8.13 20 12C20 15.87 16.87 19 13 19C11.07 19 9.32 18.21 8.06 16.94L6.64 18.36C8.27 19.99 10.51 21 13 21C17.97 21 22 16.97 22 12C22 7.03 17.97 3 13 3ZM12 8L12 13L16.25 15.52L17.02 14.24L13.5 12.15L13.5 8Z"
-                    fill="currentColor" />
-                </svg>
-              <span>Ссылки</span>
-            </a>
-          </li>
-        </ul>
+              <li class="header__nav-item">
+                <a routerLink="/" class="header__nav-link">
+                  <svg class="icon icon-rotate" viewBox="0 0 21.2132 21.2131">
+                      <path d="M15 0L11 0L11 2L15 2C16.65 2 18 3.35 18 5C18 6.65 16.65 8 15 8L11 8L11 10L15 10C17.76 10 20 7.76 20 5C20 2.24 17.76 0 15 0ZM9 8L5 8C3.35 8 2 6.65 2 5C2 3.35 3.35 2 5 2L9 2L9 0L5 0C2.24 0 0 2.24 0 5C0 7.76 2.24 10 5 10L9 10L9 8ZM6 4L14 4L14 6L6 6L6 4Z"
+                        fill="currentColor" />
+                    </svg>
+                  <span>Ссылки</span>
+                </a>
+              </li>
+             <li class="header__nav-item">
+                <a routerLink="/" class="header__nav-link">
+                  <svg class="icon" viewBox="0 0 20 14">
+                      <path d="M7 8.75C4.66 8.75 0 9.92 0 12.25L0 14L14 14L14 12.25C14 9.92 9.34 8.75 7 8.75ZM2.34 12C3.18 11.42 5.21 10.75 7 10.75C8.79 10.75 10.82 11.42 11.66 12L2.34 12ZM7 7C8.93 7 10.5 5.43 10.5 3.5C10.5 1.57 8.93 0 7 0C5.07 0 3.5 1.57 3.5 3.5C3.5 5.43 5.07 7 7 7ZM7 2C7.83 2 8.5 2.67 8.5 3.5C8.5 4.33 7.83 5 7 5C6.17 5 5.5 4.33 5.5 3.5C5.5 2.67 6.17 2 7 2ZM14.04 8.81C15.2 9.65 16 10.77 16 12.25L16 14L20 14L20 12.25C20 10.23 16.5 9.08 14.04 8.81Z"
+                        fill="currentColor" />
+                  </svg>
+                  <span>Ссылки</span>
+                </a>
+              </li>
+              <li class="header__nav-item">
+                <a routerLink="/" class="header__nav-link">
+                  <svg class="icon" viewBox="0 0 24 24">
+                      <path d="M7 20L7.5 16L4 16L4 14L7.75 14L8.25 10L4 10L4 8L8.5 8L9 4L11 4L10.5 8L14.5 8L15 4L17 4L16.5 8L20 8L20 10L16.25 10L15.75 14L20 14L20 16L15.5 16L15 20L13 20L13.5 16L9.5 16L9 20L7 20ZM13.75 14L14.25 10L10.25 10L9.75 14L13.75 14Z"
+                        fill="currentColor" />
+                    </svg>
+                  <span>Ссылки</span>
+                </a>
+              </li>
+              <li class="header__nav-item">
+                <a routerLink="/" class="header__nav-link">
+                  <svg class="icon" viewBox="0 0 24 24">
+                      <path d="M7 20L7.5 16L4 16L4 14L7.75 14L8.25 10L4 10L4 8L8.5 8L9 4L11 4L10.5 8L14.5 8L15 4L17 4L16.5 8L20 8L20 10L16.25 10L15.75 14L20 14L20 16L15.5 16L15 20L13 20L13.5 16L9.5 16L9 20L7 20ZM13.75 14L14.25 10L10.25 10L9.75 14L13.75 14Z"
+                        fill="currentColor" />
+                    </svg>
+                  <span>Ссылки</span>
+                </a>
+              </li>
+              <li class="header__nav-item">
+                <a routerLink="/" class="header__nav-link">
+                  <svg class="icon" viewBox="0 0 24 24">
+                    <path d="M22 9.24L14.81 8.62L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27L18.18 21L16.55 13.97L22 9.24Z"
+                      fill="currentColor" />
+                  </svg>
+                  <span>Ссылки</span>
+                </a>
+              </li>
+              <li class="header__nav-item">
+                <a routerLink="/" class="header__nav-link">
+                    <svg class="icon" viewBox="0 0 24 24">
+                      <path d="M13 3C8.03 3 4 7.03 4 12L1 12L4.89 15.89L9 12L6 12C6 8.13 9.13 5 13 5C16.87 5 20 8.13 20 12C20 15.87 16.87 19 13 19C11.07 19 9.32 18.21 8.06 16.94L6.64 18.36C8.27 19.99 10.51 21 13 21C17.97 21 22 16.97 22 12C22 7.03 17.97 3 13 3ZM12 8L12 13L16.25 15.52L17.02 14.24L13.5 12.15L13.5 8Z"
+                        fill="currentColor" />
+                    </svg>
+                  <span>Ссылки</span>
+                </a>
+              </li>
+            </ul>
       </nav>
+    </div>
 
-    <div *ngIf="!isOpened" #searchBtn  class="header__search">
-      <button  (click)="openSearch(); $event.stopPropagation()"   #btn  class="header__search-btn">
+    <div  [class.hidden]="isAnimated()"  class="header__BBB">
+      <button  (click)="openSearch(); $event.stopPropagation()"  #btn  class="header__search-btn">
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24.000000" height="24.000000" fill="none">
             <rect id="Icon/search" width="24.000000" height="24.000000" x="0.000000" y="0.000000" fill="rgb(255,255,255)" fill-opacity="0" />
             <path id="Vector" d="M0 0L24 0L24 24L0 24L0 0Z" fill-rule="nonzero" />

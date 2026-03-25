@@ -1,0 +1,153 @@
+.search-page {
+  position: fixed;
+  inset: 0;
+
+  z-index: 999;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  transform: translateX(100%);
+  transition: 0.3s ease;
+}
+
+.search-page__group{
+  position: relative;
+}
+
+.search-page__label{
+  position: absolute;
+  bottom: 23px;
+  left: 7px;
+  background-color: white;
+  padding: 7px;
+  border-radius: 50%;
+}
+.search-page_open {
+  transform: translateX(0);
+}
+
+.search-page__header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 12px;
+  background: #fff;
+}
+
+.search-page__back {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.search-page__input {
+  flex: 1;
+  padding: 10px 12px;
+
+  border-radius: 20px;
+  border: none;
+
+  background: #F5F5F5;
+}
+
+.search-page__body {
+  padding: 16px;
+  overflow-y: auto;
+  background-color: white;
+
+}
+
+.search-page__group {
+  margin-bottom: 20px;
+}
+
+
+.search-page__label {
+  font-size: 12px;
+  color: #888;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.search-page__input-wrapper {
+  display: flex;
+  align-items: center;
+  background: white;
+  border-radius: 6px;
+  padding: 8px;
+  border: 2px solid #888;
+}
+
+.search-page__input-wrapper input {
+  border: none;
+  flex: 1;
+  outline: none;
+}
+
+.search-page__tag {
+  background: #eee;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+.search-page__subtitle {
+  font-size: 12px;
+  color: #888;
+  margin-bottom: 8px;
+  display: block;
+}
+.search-page__checkbox {
+  display: flex;
+  margin-bottom: 10px;
+  align-items: center;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.search-page__checkbox input {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  width: 0;
+  height: 0;
+  position: absolute;
+  opacity: 0;
+}
+
+.checkbox__box{
+  margin-right: 20px;
+}
+.checkbox__box {
+  width: 30px;
+  height: 30px;
+  border: 2px solid #ccc;
+  border-radius: 50%;
+  background: #fff;
+  position: relative;
+  transition: 0.2s;
+}
+.checkbox__box::after {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: 8px;
+  width: 8px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  opacity: 0;
+  transition: 0.2s;
+}
+.search-page__checkbox input:checked + .checkbox__box {
+  background: #D9D9D9;
+  border-color: #D9D9D9;
+}
+
+.search-page__checkbox input:checked + .checkbox__box::after {
+  opacity: 1;
+}
