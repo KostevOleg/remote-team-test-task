@@ -1,30 +1,26 @@
-import { Component, HostListener, OnInit, signal } from '@angular/core';
-import {HeaderComponent} from './layout/header/header';
+import { Component, OnInit, OnDestroy, signal } from '@angular/core';
+import { HeaderComponent } from './layout/header/header';
 import { SearchMobileComponent } from './layout/mobile-search/mobile-search';
 
 @Component({
   selector: 'app-root',
+  standalone: true,
   imports: [HeaderComponent, SearchMobileComponent],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
-export class App  implements OnInit{
+export class App implements OnInit, OnDestroy {
+  private readonly MOBILE_BREAKPOINT = 650;
+
   isSearchOpen = signal(false);
-  isMobile = signal(window.matchMedia('(max-width: 650px)').matches);
-  media! :MediaQueryList
+  isMobile = signal(false);
+
+  private media!: MediaQueryList;
 
   ngOnInit() {
-    this. media = window.matchMedia('(max-width: 650px)');
-
-    this.media.addEventListener('change', (e) => {
-      this.isMobile.set(e.matches);
-    });
-  }
-  @HostListener('window:resize')
-    onResize() {
-      if (window.innerWidth > 650) {
-        this.isSearchOpen.set(false);
-      }
+    this.media = window.matchMedia(`(max-width: ${this.MOBILE_BREAKPOINT}px)`);
+    this.isMobile.set(this.media.matches);
+    this.media.addEventListener('change', this.onChange);
   }
 
   openSearch() {
@@ -32,12 +28,18 @@ export class App  implements OnInit{
       this.isSearchOpen.set(true);
     }
   }
-  closeSearch(){
-    this.isSearchOpen.set(false)
+
+  closeSearch() {
+    this.isSearchOpen.set(false);
   }
-  onChange = (e: MediaQueryListEvent) => {
+
+  private onChange = (e: MediaQueryListEvent) => {
     this.isMobile.set(e.matches);
+    if (!e.matches) {
+      this.isSearchOpen.set(false);
+    }
   };
+
   ngOnDestroy() {
     this.media.removeEventListener('change', this.onChange);
   }

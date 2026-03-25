@@ -9,7 +9,7 @@
 
     <div  class="header__center">
       <app-search  (close)="closeSearch(); " [class.open]="isOpened()" class="header-search"></app-search>
-       <button type="button" class="header__burger" (click)="toggleMenu()">
+       <button type="button" [class.active]="isMobileMenu()" class="header__burger" (click)="toggleMenu()">
           <span></span>
           <span></span>
           <span></span>
@@ -75,8 +75,8 @@
       </nav>
     </div>
 
-    <div  [class.hidden]="isAnimated()"  class="header__BBB">
-      <button  (click)="openSearch(); $event.stopPropagation()"  #btn  class="header__search-btn">
+    <div  [class.hidden]="isAnimated()"  class="header__search-toggle">
+      <button  (click)="openSearch(); $event.stopPropagation()"  #btn  class="header__search-toggle-btn">
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24.000000" height="24.000000" fill="none">
             <rect id="Icon/search" width="24.000000" height="24.000000" x="0.000000" y="0.000000" fill="rgb(255,255,255)" fill-opacity="0" />
             <path id="Vector" d="M0 0L24 0L24 24L0 24L0 0Z" fill-rule="nonzero" />

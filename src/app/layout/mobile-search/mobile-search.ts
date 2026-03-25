@@ -10,6 +10,6 @@ import {ChangeDetectionStrategy, Component, EventEmitter, Input, Output} from "@
 })
 export class SearchMobileComponent {
   @Input() isOpen = false
-  @Output() close = new EventEmitter
+  @Output() close = new EventEmitter<void>()
 
 }
